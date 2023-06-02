@@ -6,7 +6,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.command === "takeScreenshot") {
     console.log('>> [background] takeScreenshot heard, taking screenshot..')
     // Forward the takeScreenshot command to the content script
-    chrome.tabs.query({currentWindow: true, highlighted: true}, function(tabs) {
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       if (tabs.length > 0) {
         chrome.tabs.sendMessage(tabs[0].id, {command: "takeScreenshot"});
       } else {
