@@ -3,7 +3,7 @@ console.log('>> [background] loaded!');
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log('>> [background] chrome runtime message heard!');
   
-  if (request.command === "takeScreenshot") {
+  if (request.command === "takeScreenshot") { // t
     console.log('>> [background] takeScreenshot heard, taking screenshot..')
     // Forward the takeScreenshot command to the content script
     chrome.tabs.query({active:true, currentWindow: true, highlighted: true}, function(tabs) {
